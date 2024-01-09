@@ -1,11 +1,9 @@
-namespace Limbo.Integrations.BorgerDk.Elements {
+namespace Limbo.Integrations.BorgerDk.Elements;
 
-    public class BorgerDkTextElement : BorgerDkElement {
+public class BorgerDkTextElement : BorgerDkElement {
 
-        public string Title { get; internal set; }
+    public string Title { get; internal set; }
 
-        public string Content { get; internal set; }
-
-    }
+    public string Content { get; internal set; }
 
 }

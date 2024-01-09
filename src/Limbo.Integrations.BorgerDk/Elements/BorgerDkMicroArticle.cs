@@ -1,17 +1,15 @@
-namespace Limbo.Integrations.BorgerDk.Elements {
-    
-    public class BorgerDkMicroArticle {
+namespace Limbo.Integrations.BorgerDk.Elements;
 
-        public BorgerDkBlockElement Parent { get; internal set; }
+public class BorgerDkMicroArticle {
 
-        public string Id { get; internal set; }
+    public BorgerDkBlockElement Parent { get; internal set; }
 
-        public string Title { get; internal set; }
+    public string Id { get; internal set; }
 
-        public string TitleType { get; internal set; }
+    public string Title { get; internal set; }
 
-        public string Content { get; internal set; }
+    public string TitleType { get; internal set; }
 
-    }
+    public string Content { get; internal set; }
 
 }

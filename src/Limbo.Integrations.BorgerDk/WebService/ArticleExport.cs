@@ -14,7 +14,7 @@ using System.Runtime.Serialization;
 [assembly: ContractNamespace("http://www.borger.dk/2009/WSArticleExport/v1/types", ClrNamespace="www.borger.dk._2009.WSArticleExport.v1.types")]
 [assembly: ContractNamespace("http://www.borger.dk/2009/WSArticleExport/v2/types", ClrNamespace="www.borger.dk._2009.WSArticleExport.v2.types")]
 
-namespace Skybrud.Integrations.BorgerDk.WebService
+namespace Limbo.Integrations.BorgerDk.WebService
 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
