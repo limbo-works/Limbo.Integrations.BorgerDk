@@ -84,7 +84,7 @@ public class BorgerDkArticle {
     /// Gets an array of all elements parsed from the article content.
     /// </summary>
     [JsonIgnore]
-    public BorgerDkElement[] Elements { get; }
+    public IReadOnlyList<BorgerDkElement> Elements { get; }
 
     #endregion
 
@@ -141,13 +141,13 @@ public class BorgerDkArticle {
 
     #endregion
 
-    private BorgerDkElement[] ParseElements(string content) {
+    private IReadOnlyList<BorgerDkElement> ParseElements(string content) {
 
-        HtmlDocument htmlDocument = new HtmlDocument();
+        HtmlDocument htmlDocument = new();
         htmlDocument.LoadHtml(content);
         htmlDocument.OptionOutputAsXml = false;
 
-        List<BorgerDkElement> elements = new List<BorgerDkElement>();
+        List<BorgerDkElement> elements = new();
 
         foreach (HtmlNode node in htmlDocument.DocumentNode.ChildNodes) {
 
@@ -157,11 +157,10 @@ public class BorgerDkArticle {
 
             if (id == "kernetekst") {
 
-                BorgerDkBlockElement block = new BorgerDkBlockElement {
-                    Id = id
-                };
+                List<BorgerDkMicroArticle> microArticles = new();
 
-                List<BorgerDkMicroArticle> microArticles = new List<BorgerDkMicroArticle>();
+                // Initialize a new block element
+                BorgerDkBlockElement block = new(id, microArticles);
 
                 foreach (HtmlNode child in node.ChildNodes) {
 
@@ -179,34 +178,28 @@ public class BorgerDkArticle {
                     if (children[0].Name != "h2" && children[0].Name != "h3") throw new Exception("What's happening? #2 (" + microId + ")");
 
                     // Get the title from the <h2>
-                    string title = children[0].InnerText;
+                    string title = children[0].InnerText.Trim();
+
+                    // Parse the text content
+                    string text = FixSimpleErrors(node.InnerHtml.Trim());
 
                     // Initialize a new micro article
-                    BorgerDkMicroArticle micro = new BorgerDkMicroArticle {
-                        Parent = block,
-                        Id = microId,
-                        Title = title.Trim(),
-                        TitleType = children[0].Name,
-                        Content = FixSimpleErrors(child.InnerHtml.Trim())
-                    };
+                    BorgerDkMicroArticle micro = new(block, microId, title, children[0].Name, text);
 
+                    // Append the micro article
                     microArticles.Add(micro);
 
                 }
 
-                block.MicroArticles = microArticles.ToArray();
-
+                // Append the element
                 elements.Add(block);
 
             } else if (id == "byline") {
 
-                BorgerDkTextElement element = new BorgerDkTextElement {
-                    Id = id,
-                    Title = "Skrevet af",
-                    Content = node.InnerText.Trim()
-                };
+                // Initialize a new text element
+                BorgerDkTextElement element = new(id, "Skrevet af", node.InnerText.Trim());
 
-                // Add the element
+                // Append the element
                 elements.Add(element);
 
             } else {
@@ -228,13 +221,13 @@ public class BorgerDkArticle {
                 // Get the title from the <h3>
                 string title = children[0].InnerText;
 
-                BorgerDkTextElement element = new BorgerDkTextElement {
-                    Id = id,
-                    Title = title,
-                    Content = FixSimpleErrors(node.InnerHtml)
-                };
+                // Parse the text content
+                string text = FixSimpleErrors(node.InnerHtml);
 
-                // Add the element
+                // Initialize a new text element
+                BorgerDkTextElement element = new(id, title, text);
+
+                // Append the element
                 elements.Add(element);
 
             }
@@ -261,7 +254,7 @@ public class BorgerDkArticle {
     #region Static methods
 
     public static BorgerDkArticle GetFromArticle(BorgerDkHttpService service, Article article) {
-        return GetFromArticle(service, article, null);
+        return GetFromArticle(service, article, BorgerDkMunicipality.NoMunicipality);
     }
 
     public static BorgerDkArticle GetFromArticle(BorgerDkHttpService service, Article article, BorgerDkMunicipality municipality) {

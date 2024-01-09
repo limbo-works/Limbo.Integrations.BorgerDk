@@ -10,7 +10,7 @@ public class BorgerDkNotFoundException : BorgerDkException {
         Url = url;
     }
 
-    public BorgerDkNotFoundException(string url, Exception innerException) : base(innerException?.Message, innerException) {
+    public BorgerDkNotFoundException(string url, Exception innerException) : base(innerException.Message, innerException) {
         Url = url;
     }
 

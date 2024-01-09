@@ -144,8 +144,8 @@ public class BorgerDkEndpoint {
     /// </summary>
     /// <param name="url">The url.</param>
     /// <returns></returns>
-    public static BorgerDkEndpoint GetFromUrl(string url) {
-        return GetFromDomain(Regex.Match(url ?? string.Empty, "^https://([a-z]+\\.borger\\.dk)/").Groups[1].Value);
+    public static BorgerDkEndpoint? GetFromUrl(string? url) {
+        return url == null ? null : GetFromDomain(Regex.Match(url, "^https://([a-z]+\\.borger\\.dk)/").Groups[1].Value);
     }
 
     /// <summary>
@@ -154,8 +154,8 @@ public class BorgerDkEndpoint {
     /// </summary>
     /// <param name="domain">The domain.</param>
     /// <returns></returns>
-    public static BorgerDkEndpoint GetFromDomain(string domain) {
-        return Values.FirstOrDefault(d => d.Domain == domain);
+    public static BorgerDkEndpoint? GetFromDomain(string? domain) {
+        return domain == null ? null : Values.FirstOrDefault(d => d.Domain == domain);
     }
 
     #endregion

@@ -21,11 +21,6 @@ public class BorgerDkHttpService {
         _client = Endpoint.GetClient();
     }
 
-    public BorgerDkHttpService(string domain) {
-        Endpoint = BorgerDkEndpoint.GetFromDomain(domain);
-        _client = Endpoint.GetClient();
-    }
-
     public BorgerDkHttpService(BorgerDkEndpoint endpoint) {
         Endpoint = endpoint;
         _client = Endpoint.GetClient();
@@ -61,7 +56,7 @@ public class BorgerDkHttpService {
 
         return BorgerDkArticle.GetFromArticle(
             this,
-            _client.GetArticleByID(articleId, municipality.Code == 0 ? null : (int?) municipality.Code),
+            _client.GetArticleByID(articleId, municipality.Code == 0 ? null : municipality.Code),
             municipality
         );
 

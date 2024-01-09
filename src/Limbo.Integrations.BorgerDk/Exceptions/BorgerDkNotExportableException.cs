@@ -10,7 +10,7 @@ public class BorgerDkNotExportableException : BorgerDkException {
         Url = url;
     }
 
-    public BorgerDkNotExportableException(string url, Exception innerException) : base(innerException?.Message, innerException) {
+    public BorgerDkNotExportableException(string url, Exception innerException) : base(innerException.Message, innerException) {
         Url = url;
     }
 

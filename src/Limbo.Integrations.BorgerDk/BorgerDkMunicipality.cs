@@ -15,7 +15,7 @@ public class BorgerDkMunicipality {
 
     #region Contants
 
-    public static readonly BorgerDkMunicipality NoMunicipality = new BorgerDkMunicipality(0, null, null);
+    public static readonly BorgerDkMunicipality NoMunicipality = new BorgerDkMunicipality(0, string.Empty, string.Empty);
     public static readonly BorgerDkMunicipality AlbertslundKommune = new BorgerDkMunicipality(165, "Albertslund");
     public static readonly BorgerDkMunicipality AlleroedKommune = new BorgerDkMunicipality(201, "Allerød");
     public static readonly BorgerDkMunicipality AssensKommune = new BorgerDkMunicipality(420, "Assens");
