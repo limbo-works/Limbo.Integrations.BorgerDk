@@ -1,12 +1,12 @@
 ﻿using System;
-using Skybrud.Integrations.BorgerDk;
+using Limbo.Integrations.BorgerDk;
 
 namespace NetCoreConsoleApp {
-    
+
     class Program {
-        
+
         static void Main(string[] args) {
-            
+
             Console.WriteLine("Hello World!");
 
             BorgerDkHttpService http = new BorgerDkHttpService(BorgerDkEndpoint.Default);
@@ -17,7 +17,7 @@ namespace NetCoreConsoleApp {
             Console.WriteLine();
 
             var article = http.GetArticleFromId(articles[0].Id, BorgerDkMunicipality.VejleKommune);
-            
+
             Console.WriteLine("ID:      " + article.Id);
             Console.WriteLine("Title:   " + article.Title);
             Console.WriteLine("Header:  " + article.Header);

@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using Skybrud.Integrations.BorgerDk.WebService;
 
-namespace Skybrud.Integrations.BorgerDk {
+namespace Limbo.Integrations.BorgerDk {
 
     public class BorgerDkEndpoint {
 

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Limbo.Integrations.BorgerDk.Json;
 using Newtonsoft.Json;
-using Skybrud.Integrations.BorgerDk.Json;
 
-namespace Skybrud.Integrations.BorgerDk {
+namespace Limbo.Integrations.BorgerDk {
 
     /// <summary>
     /// Class representing a reference to a municipality.

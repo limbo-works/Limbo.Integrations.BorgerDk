@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skybrud.Integrations.BorgerDk", "Skybrud.Integrations.BorgerDk\Skybrud.Integrations.BorgerDk.csproj", "{8794468B-2162-49E0-9E63-6AC93888C802}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Limbo.Integrations.BorgerDk", "Limbo.Integrations.BorgerDk\Limbo.Integrations.BorgerDk.csproj", "{8794468B-2162-49E0-9E63-6AC93888C802}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreConsoleApp", "NetCoreConsoleApp\NetCoreConsoleApp.csproj", "{9A882D5F-7A4F-438B-9E30-03993D804C2E}"
 EndProject

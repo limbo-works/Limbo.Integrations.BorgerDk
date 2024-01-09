@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Skybrud.Integrations.BorgerDk\Skybrud.Integrations.BorgerDk.csproj" />
+    <ProjectReference Include="..\Limbo.Integrations.BorgerDk\Limbo.Integrations.BorgerDk.csproj" />
   </ItemGroup>
 
 </Project>

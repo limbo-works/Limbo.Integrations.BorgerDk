@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using HtmlAgilityPack;
+using Limbo.Integrations.BorgerDk.Elements;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Strings;
 using Skybrud.Essentials.Time;
-using Skybrud.Integrations.BorgerDk.Elements;
 using Skybrud.Integrations.BorgerDk.WebService;
 
-namespace Skybrud.Integrations.BorgerDk {
+namespace Limbo.Integrations.BorgerDk {
 
     /// <summary>
     /// Class representing an article received from the Borger.dk web service.

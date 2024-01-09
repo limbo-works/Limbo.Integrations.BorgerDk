@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Integrations.BorgerDk.Elements {
+﻿namespace Limbo.Integrations.BorgerDk.Elements {
 
     public abstract class BorgerDkElement {
 

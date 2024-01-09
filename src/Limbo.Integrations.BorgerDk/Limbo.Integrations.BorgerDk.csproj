@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.1</Version>
+    <Version>1.0.0-alpha000</Version>
     <Authors>Anders Bjerner</Authors>
     <Company>Limbo</Company>
     <Product>Skybrud.Integrations</Product>
@@ -16,13 +16,13 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Skybrud.Integrations.BorgerDk</PackageId>
+    <PackageId>Limbo.Integrations.BorgerDk</PackageId>
     <PackageTags>Skybrud, Limbo, Borger.dk, selvbetjening, web service, artikel</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/skybrud/Skybrud.Integrations.BorgerDk</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/limbo-works/Limbo.Integrations.BorgerDk</PackageProjectUrl>
     <PackageIcon>Limbo.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/skybrud/Skybrud.Integrations.BorgerDk</RepositoryUrl>
+    <RepositoryUrl>https://github.com/skybrud/Limbo.Integrations.BorgerDk</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
@@ -50,9 +50,5 @@
   <ItemGroup>
     <None Include="../build/Limbo.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(ConfigurationName)'=='Release' AND '$(BuildTools)'=='1'">
-    <Exec Command="&quot;$(ProjectDir)..\build\Skybrud.BuildTools.Tasks.exe&quot; &quot;postBuild&quot; &quot;$(ConfigurationName)&quot; &quot;$(ProjectPath)&quot; &quot;$(TargetPath)&quot;" />
-  </Target>
 
 </Project>

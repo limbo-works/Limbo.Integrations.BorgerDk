@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Skybrud.Integrations.BorgerDk.Exceptions;
+using Limbo.Integrations.BorgerDk.Exceptions;
 using Skybrud.Integrations.BorgerDk.WebService;
 
-namespace Skybrud.Integrations.BorgerDk {
+namespace Limbo.Integrations.BorgerDk {
 
     public class BorgerDkHttpService {
 

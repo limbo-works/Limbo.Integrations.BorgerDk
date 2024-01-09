@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Skybrud.Integrations.BorgerDk.Json {
+namespace Limbo.Integrations.BorgerDk.Json {
 
     public class BorgerDkJsonConverter : JsonConverter {
 

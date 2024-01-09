@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Skybrud.Integrations.BorgerDk.Exceptions {
+namespace Limbo.Integrations.BorgerDk.Exceptions {
 
     public class BorgerDkException : Exception {
 
