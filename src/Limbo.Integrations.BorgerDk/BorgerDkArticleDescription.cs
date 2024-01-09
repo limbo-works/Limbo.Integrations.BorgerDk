@@ -22,8 +22,8 @@ public class BorgerDkArticleDescription {
         TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("Romance Standard Time");
 
         // Assume the timstamp are specified according to the Danish time zone
-        DateTimeOffset published = new DateTimeOffset(article.PublishingDate, tz.GetUtcOffset(article.PublishingDate));
-        DateTimeOffset updated = new DateTimeOffset(article.LastUpdated, tz.GetUtcOffset(article.LastUpdated));
+        DateTimeOffset published = new(article.PublishingDate, tz.GetUtcOffset(article.PublishingDate));
+        DateTimeOffset updated = new(article.LastUpdated, tz.GetUtcOffset(article.LastUpdated));
 
         Id = article.ArticleID;
         Title = article.ArticleTitle;

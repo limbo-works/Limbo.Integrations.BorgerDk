@@ -41,14 +41,14 @@ public class BorgerDkEndpoint {
     /// <summary>
     /// Gets the endpoint for "www.borger.dk".
     /// </summary>
-    public static readonly BorgerDkEndpoint Default = new BorgerDkEndpoint(
+    public static readonly BorgerDkEndpoint Default = new(
         "www.borger.dk", "Borger.dk", "Sider", "https://www.borger.dk/_vti_bin/borger/ArticleExport.svc"
     );
 
     /// <summary>
     /// Gets the endpoint for "lifeindenmark.borger.dk".
     /// </summary>
-    public static readonly BorgerDkEndpoint LifeInDenmark = new BorgerDkEndpoint(
+    public static readonly BorgerDkEndpoint LifeInDenmark = new(
         "lifeindenmark.borger.dk", "Life in Denmark", "Pages", "https://lifeindenmark.borger.dk/_vti_bin/borger/ArticleExport.svc"
     );
 

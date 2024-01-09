@@ -109,18 +109,18 @@ public class BorgerDkArticle {
 
     private BorgerDkArticle(BorgerDkHttpService service, Article article, BorgerDkMunicipality municipality) {
 
+        if (municipality == null) throw new ArgumentNullException(nameof(municipality));
+
         // Check if "service" or "article" is null
         if (service == null) throw new ArgumentNullException(nameof(service));
         if (article == null) throw new ArgumentNullException(nameof(article));
-
-        municipality = municipality ?? BorgerDkMunicipality.NoMunicipality;
 
         // Get the Danish time zone
         TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("Romance Standard Time");
 
         // Assume the timstamp are specified according to the Danish time zone
-        DateTimeOffset published = new DateTimeOffset(article.PublishingDate, tz.GetUtcOffset(article.PublishingDate));
-        DateTimeOffset updated = new DateTimeOffset(article.LastUpdated, tz.GetUtcOffset(article.LastUpdated));
+        DateTimeOffset published = new(article.PublishingDate, tz.GetUtcOffset(article.PublishingDate));
+        DateTimeOffset updated = new(article.LastUpdated, tz.GetUtcOffset(article.LastUpdated));
 
         // Populate basic properties
         Id = article.ArticleID;
@@ -259,11 +259,13 @@ public class BorgerDkArticle {
 
     public static BorgerDkArticle GetFromArticle(BorgerDkHttpService service, Article article, BorgerDkMunicipality municipality) {
 
+        if (municipality == null) throw new ArgumentNullException(nameof(municipality));
+
         // Check if "service" or "article" is null
         if (service == null) throw new ArgumentNullException(nameof(service));
         if (article == null) throw new ArgumentNullException(nameof(article));
 
-        return new BorgerDkArticle(service, article, municipality ?? BorgerDkMunicipality.NoMunicipality);
+        return new BorgerDkArticle(service, article, municipality);
 
     }
 
