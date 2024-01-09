@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Limbo.Integrations.BorgerDk.Exceptions;
 using Limbo.Integrations.BorgerDk.WebService;
@@ -62,11 +63,11 @@ public class BorgerDkHttpService {
 
     }
 
-    public BorgerDkMunicipality[] GetMunicipalityList() {
+    public IReadOnlyList<BorgerDkMunicipality> GetMunicipalityList() {
         return _client.GetMunicipalityList().Select(x => new BorgerDkMunicipality(x.MunicipalityCode, x.MunicipalityName)).ToArray();
     }
 
-    public BorgerDkArticleDescription[] GetArticleList() {
+    public IReadOnlyList<BorgerDkArticleDescription> GetArticleList() {
         return _client.GetAllArticles().Select(x => new BorgerDkArticleDescription(x)).ToArray();
     }
 
