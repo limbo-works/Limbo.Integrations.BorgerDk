@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using Limbo.Integrations.BorgerDk.Json;
@@ -211,12 +212,12 @@ public class BorgerDkMunicipality {
         return Values.FirstOrDefault(x => x.Code.ToString(CultureInfo.InvariantCulture) == code) ?? NoMunicipality;
     }
 
-    public static bool TryGetFromCode(int code, out BorgerDkMunicipality municipality) {
+    public static bool TryGetFromCode(int code, [NotNullWhen(true)] out BorgerDkMunicipality? municipality) {
         municipality = Values.FirstOrDefault(x => x.Code == code);
         return municipality != null;
     }
 
-    public static bool TryGetFromCode(string code, out BorgerDkMunicipality municipality) {
+    public static bool TryGetFromCode(string code, [NotNullWhen(true)] out BorgerDkMunicipality? municipality) {
         municipality = Values.FirstOrDefault(x => x.Code.ToString(CultureInfo.InvariantCulture) == code);
         return municipality != null;
     }
