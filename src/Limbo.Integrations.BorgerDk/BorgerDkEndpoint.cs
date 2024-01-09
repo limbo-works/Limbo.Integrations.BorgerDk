@@ -2,7 +2,6 @@
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.ServiceModel.Security;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
@@ -29,7 +28,7 @@ namespace Limbo.Integrations.BorgerDk {
         /// language specific - eg. "Sider" for Danish or "Pages" for English.
         /// </summary>
         public string SubFolder { get; }
-        
+
         /// <summary>
         /// Gets the full URL to the webservice endpoint.
         /// </summary>
@@ -85,67 +84,23 @@ namespace Limbo.Integrations.BorgerDk {
         /// </summary>
         /// <param name="url">The URL to validate.</param>
         public bool IsValidUrl(string url) {
-            
+
             // Obviously an empty URL is not valid
             if (string.IsNullOrWhiteSpace(url)) return false;
             url = url.Split('?')[0];
-            
+
             // In December 2016, Borger.dk moved to a new CMS that uses a
             // different URL structure. This means that we can't really tell
             // whether an URL refers to an article or just a normal page. So
             // for now, we just validate the domain.
             return url.StartsWith("https://" + Domain + "/");
-        
+
         }
 
         #endregion
 
         #region Static methods
 
-#if NET_FRAMEWORK
-
-        /// <summary>
-        /// Gets the default binding used to communicate with the Borger.dk webservices.
-        /// </summary>
-        public static Binding GetDefaultBinding() {
-            return new BasicHttpBinding {
-                CloseTimeout = TimeSpan.FromMinutes(1),
-                OpenTimeout = TimeSpan.FromMinutes(1),
-                ReceiveTimeout = TimeSpan.FromMinutes(10),
-                SendTimeout = TimeSpan.FromMinutes(1),
-                AllowCookies = false,
-                BypassProxyOnLocal = false,
-                HostNameComparisonMode = HostNameComparisonMode.StrongWildcard,
-                MaxBufferSize = 1048576, // 1 MB
-                MaxBufferPoolSize = 524288,
-                MaxReceivedMessageSize = 1048576, // 1 MB
-                MessageEncoding = WSMessageEncoding.Text,
-                TextEncoding = Encoding.UTF8,
-                TransferMode = TransferMode.Buffered,
-                UseDefaultWebProxy = true,
-                ReaderQuotas = new XmlDictionaryReaderQuotas {
-                    MaxDepth = 32,
-                    MaxStringContentLength = 65536,
-                    MaxArrayLength = 16384,
-                    MaxBytesPerRead = 4096,
-                    MaxNameTableCharCount = 16384
-                },
-                Security = new BasicHttpSecurity {
-                    Mode = BasicHttpSecurityMode.Transport,
-                    Transport = new HttpTransportSecurity {
-                        ClientCredentialType = HttpClientCredentialType.None,
-                        ProxyCredentialType = HttpProxyCredentialType.None,
-                        Realm = ""
-                    },
-                    Message = new BasicHttpMessageSecurity {
-                        ClientCredentialType = BasicHttpMessageCredentialType.UserName,
-                        AlgorithmSuite = SecurityAlgorithmSuite.Default
-                    }
-                }
-            };
-        }
-
-#else
         /// <summary>
         /// Gets the default binding used to communicate with the Borger.dk webservices.
         /// </summary>
@@ -182,8 +137,6 @@ namespace Limbo.Integrations.BorgerDk {
                 }
             };
         }
-
-#endif
 
         /// <summary>
         /// Gets the endpoint from the specified URL. If no matching endpoint can be

@@ -3,18 +3,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
     <TargetFrameworks>net45;net46;net47;netstandard2.0</TargetFrameworks>
     <BuildInParallel>false</BuildInParallel>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.0-alpha000</Version>
+    <VersionPrefix>1.0.0-alpha000</VersionPrefix>
+    <VersionSuffix Condition="'$(Configuration)'=='Debug'">build$([System.DateTime]::UtcNow.ToString(`yyyyMMddHHmm`))</VersionSuffix>
     <Authors>Anders Bjerner</Authors>
     <Company>Limbo</Company>
-    <Product>Skybrud.Integrations</Product>
-    <Copyright>Copyright © 2021</Copyright>
+    <Product>Limbo.Integrations</Product>
+    <Copyright>Copyright © $([System.DateTime]::UtcNow.ToString(`yyyy`))</Copyright>
+    <Description>.NET library for communicating with the Borger.dk web service.</Description>
   </PropertyGroup>
 
+  <!-- Information for the NuGet package -->
   <PropertyGroup>
     <PackageId>Limbo.Integrations.BorgerDk</PackageId>
     <PackageTags>Skybrud, Limbo, Borger.dk, selvbetjening, web service, artikel</PackageTags>
@@ -25,23 +29,18 @@
     <RepositoryUrl>https://github.com/skybrud/Limbo.Integrations.BorgerDk</RepositoryUrl>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <DefineConstants>NET_STANDARD</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
-    <DefineConstants>NET_FRAMEWORK</DefineConstants>
-  </PropertyGroup>
-
+  <!-- Include NuGet dependencies -->
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.5.0" />
     <PackageReference Include="Skybrud.Essentials" Version="1.1.33" />
   </ItemGroup>
 
+  <!-- Include NuGet dependencies only for .NET Framework -->
   <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
 
+  <!-- Include NuGet dependencies only for .NET Standard -->
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
     <PackageReference Include="System.ServiceModel.Security" Version="4.8.1" />
