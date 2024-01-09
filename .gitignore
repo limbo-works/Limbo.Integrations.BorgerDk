@@ -1,7 +1,8 @@
 src/.vs/
 src/Limbo.Integrations.BorgerDk/bin/
 src/Limbo.Integrations.BorgerDk/obj/
-src/NetCoreConsoleApp/bin/
-src/NetCoreConsoleApp/obj/
-src/NetFrameworkConsoleApp/bin/
-src/NetFrameworkConsoleApp/obj/
+src/NetFrameworkTestProject/bin/
+src/NetFrameworkTestProject/obj/
+src/NetTestProject/bin/
+src/NetTestProject/obj/
+src/packages/
