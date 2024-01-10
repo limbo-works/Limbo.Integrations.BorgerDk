@@ -27,7 +27,7 @@
     <PackageProjectUrl>https://packages.limbo.works/limbo.integrations.borgerdk/v1.0/</PackageProjectUrl>
     <PackageIcon>Limbo.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/skybrud/Limbo.Integrations.BorgerDk</RepositoryUrl>
+    <RepositoryUrl>https://github.com/limbo-works/Limbo.Integrations.BorgerDk</RepositoryUrl>
   </PropertyGroup>
 
   <!-- Include NuGet dependencies -->
