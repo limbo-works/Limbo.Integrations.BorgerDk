@@ -34,7 +34,7 @@
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.5.0" />
     <PackageReference Include="Nullable" Version="1.3.1" PrivateAssets="all" />
-    <PackageReference Include="Skybrud.Essentials" Version="1.1.33" />
+    <PackageReference Include="Skybrud.Essentials" Version="1.1.54" />
   </ItemGroup>
 
   <!-- Include NuGet dependencies only for .NET Framework -->

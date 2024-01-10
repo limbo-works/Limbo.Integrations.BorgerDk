@@ -93,15 +93,15 @@ public class BorgerDkArticle {
     public BorgerDkArticle(JObject obj) {
 
         Id = obj.GetInt32("id");
-        Domain = obj.GetString("domain");
-        Url = obj.GetString("url");
-        Municipality = obj.GetInt32("municipality", BorgerDkMunicipality.GetFromCode);
-        Title = obj.GetString("title");
-        Header = obj.GetString("header");
-        ByLine = obj.GetString("byline");
-        PublishDate = obj.GetString("publishDate", EssentialsTime.Parse);
-        UpdateDate = obj.GetString("updateDate", EssentialsTime.Parse);
-        Content = obj.GetString("content");
+        Domain = obj.GetString("domain")!;
+        Url = obj.GetString("url")!;
+        Municipality = obj.GetInt32("municipality", BorgerDkMunicipality.GetFromCode)!;
+        Title = obj.GetString("title")!;
+        Header = obj.GetString("header")!;
+        ByLine = obj.GetString("byline")!;
+        PublishDate = obj.GetString("publishDate", EssentialsTime.Parse)!;
+        UpdateDate = obj.GetString("updateDate", EssentialsTime.Parse)!;
+        Content = obj.GetString("content")!;
 
         Elements = ParseElements(Content);
 
@@ -135,7 +135,7 @@ public class BorgerDkArticle {
 
         Elements = ParseElements(Content);
 
-        ByLine = StringUtils.StripHtml(Elements.OfType<BorgerDkTextElement>().FirstOrDefault(x => x.Id == "byline")?.Content);
+        ByLine = StringUtils.StripHtml(Elements.OfType<BorgerDkTextElement>().FirstOrDefault(x => x.Id == "byline")?.Content) ?? string.Empty;
 
     }
 
