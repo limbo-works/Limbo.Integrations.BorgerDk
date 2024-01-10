@@ -238,11 +238,13 @@ public class BorgerDkArticle {
 
     }
 
-    private HtmlNode[] GetNonTextChildren(HtmlNode node) {
-        return node.ChildNodes.Where(child => !(child is HtmlTextNode)).ToArray();
+    #region Static methods
+
+    private static HtmlNode[] GetNonTextChildren(HtmlNode node) {
+        return node.ChildNodes.Where(child => child is not HtmlTextNode).ToArray();
     }
 
-    private string FixSimpleErrors(string str) {
+    private static string FixSimpleErrors(string str) {
 
         // Replace non-breaking spaces as they typically appear to be inserted by mistake
         str = str.Replace((char) 160, ' ');
@@ -250,8 +252,6 @@ public class BorgerDkArticle {
         return str;
 
     }
-
-    #region Static methods
 
     public static BorgerDkArticle GetFromArticle(BorgerDkHttpService service, Article article) {
         return GetFromArticle(service, article, BorgerDkMunicipality.NoMunicipality);
