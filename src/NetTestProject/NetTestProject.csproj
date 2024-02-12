@@ -20,4 +20,10 @@
     <ProjectReference Include="..\Limbo.Integrations.BorgerDk\Limbo.Integrations.BorgerDk.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="flytning.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
