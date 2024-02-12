@@ -181,7 +181,7 @@ public class BorgerDkArticle {
                     string title = children[0].InnerText.Trim();
 
                     // Parse the text content
-                    string text = FixSimpleErrors(node.InnerHtml.Trim());
+                    string text = FixSimpleErrors(child.InnerHtml.Trim());
 
                     // Initialize a new micro article
                     BorgerDkMicroArticle micro = new(block, microId, title, children[0].Name, text);
