@@ -118,7 +118,7 @@ public class BorgerDkArticle {
         // Get the Danish time zone
         TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("Romance Standard Time");
 
-        // Assume the timstamp are specified according to the Danish time zone
+        // Assume the timestamp are specified according to the Danish time zone
         DateTimeOffset published = new(article.PublishingDate, tz.GetUtcOffset(article.PublishingDate));
         DateTimeOffset updated = new(article.LastUpdated, tz.GetUtcOffset(article.LastUpdated));
 
