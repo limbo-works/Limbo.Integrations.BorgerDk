@@ -7,7 +7,7 @@ using Limbo.Integrations.BorgerDk.Elements;
 using Limbo.Integrations.BorgerDk.WebService;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 using Skybrud.Essentials.Strings;
 using Skybrud.Essentials.Time;
 
